@@ -11,9 +11,9 @@
     - You can only use the word add_0 once in your code
     - You are not allowed to use * for importing or __import__
     - Your code should not be executed when imported - by using __import__, like the example below
-
+ 
 ###### 1-calculation.py
--A program that imports functions from the file calculator_1.py, does some Maths, and prints the result.
+- A program that imports functions from the file calculator_1.py, does some Maths, and prints the result.
     - Do not use the function print (with string format to display integers) more than 4 times
     - You have to define:
         - the value 10 to a variable a
