@@ -8,5 +8,5 @@ if __name__ == "__main__":
     elif number_of_arguments > 1:
         print("{} arguments:".format(number_of_arguments - 1))
         while count < number_of_arguments:
-            print("{}:{}".format(count, argv[count]))
+            print("{}: {}".format(count, argv[count]))
             count = count + 1
