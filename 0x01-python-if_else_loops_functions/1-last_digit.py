@@ -2,16 +2,10 @@
 import random
 number = random.randint(-10000, 10000)
 
-temp = number
-# check if number is negative
-if number < 0:
-    number = -(number)
-
-last_digit = number % 10
-if temp < 0:
-    number = temp
-    last_digit = -(last_digit)
-
+if number >= 0:
+    last_digit = number % 10
+else:
+    last_digit = ((-number % 10) * -1)
 # perform checks
 if last_digit > 5:
     string = "and is greater than 5"
