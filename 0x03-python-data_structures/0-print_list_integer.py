@@ -5,4 +5,4 @@ def print_list_integer(my_list=[]):
     Print a list
     """
     for item in my_list:
-        print("{}".format(item))
+        print("{:d}".format(item))
