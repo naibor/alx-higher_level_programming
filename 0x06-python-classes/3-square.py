@@ -3,10 +3,12 @@
 class Square:
     """ A Square
     Attributes:
-        size: type int
+        size (int): private attribute
     """
     def __init__(self, size=0):
         """ Intitilize class square with attribute size
+        Args:
+            size (int): parameter
         """
         self.__size = size
         if type(size) != int:

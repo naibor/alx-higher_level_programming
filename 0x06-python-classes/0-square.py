@@ -2,4 +2,6 @@
 
 class Square:
     """ A square class
+    Attributes:
+        None
     """

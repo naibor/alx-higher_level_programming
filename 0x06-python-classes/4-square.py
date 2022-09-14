@@ -2,10 +2,12 @@
 class Square:
     """ A Square
     Attributes:
-        size: type int
+        size (int): private attribute
     """
     def __init__(self, size=0):
         """ Intitilize class square with attribute size
+        Args:
+            size (int): parameter
         """
         self.__size = size
 
@@ -19,7 +21,7 @@ class Square:
     def size(self, value):
         """ Set the attribute size
         Args:
-            value: New value for size
+            value (int): New value for size
         """
         if type(value) != int:
             raise TypeError("size must be an integer")

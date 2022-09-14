@@ -7,6 +7,9 @@ class Square:
     """
     def __init__(self, size=0, position=(0, 0)):
         """ Intitilize class square with attribute size and position
+        Args:
+            size (int): size parameter
+            position(tuple): position parameter of type int
         """
         self.__size = size
         self.__position = position
@@ -27,7 +30,7 @@ class Square:
     def size(self, value):
         """ Set the attribute size
         Args:
-            value: New value for size
+            value (int): New value for size
         """
         if type(value) != int:
             raise TypeError("size must be an integer")
@@ -40,7 +43,7 @@ class Square:
     def position(self, value):
         """ Set the attribute position
         Args:
-            value: New value for position
+            value (tuple): New value for position
         """
         # get length
         m = len(value)
