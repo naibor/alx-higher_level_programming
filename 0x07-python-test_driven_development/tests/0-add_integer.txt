@@ -1,0 +1,25 @@
+========================================================================
+'Test for 0-add_integer module'
+========================================================================
+'Function to test: add_integer()'
+========================================================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+'negative integer values'
+>>> add_integer(-3, -4)
+-7
+
+'positive integer values'
+>>> add_integer(2, 60)
+62
+
+'negative floating values'
+>>> add_integer(-3.54, -4.40)
+-7
+
+'positive floating values'
+>>> add_integer(2.54, 60.43)
+62
+
+
