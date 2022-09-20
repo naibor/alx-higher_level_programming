@@ -1,10 +1,10 @@
 ==================================================================================
-'Test for 5-text_indentation module'
-==================================================================================='Function to test: text_indentation()'
+'Test for 4-print_square module'
+==================================================================================='Function to test: print_square()'
 ==================================================================================
 
 Import function:
->>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> print_square = __import__('4-print_square').print_square
 
 Test cases:
 'positive integer values'
