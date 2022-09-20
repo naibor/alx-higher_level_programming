@@ -38,7 +38,7 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """ Deletes a rectangle instance 
+        """ Deletes a rectangle instance
         and prints a message
         """
         print("Bye rectangle...")
@@ -107,4 +107,3 @@ class Rectangle:
         else:
             perimeter = (self.__width * 2) + (self.__height * 2)
         return perimeter
-
