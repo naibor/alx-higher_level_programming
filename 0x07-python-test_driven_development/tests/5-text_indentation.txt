@@ -1,0 +1,78 @@
+==================================================================================
+'Test for 5-text_indentation module'
+==================================================================================='Function to test: text_indentation()'
+==================================================================================
+
+Import function:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test cases:
+'text is empty'
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+'text is a string'
+>>> text_indentation("Leona: Naibor? ALX.")
+Leona:
+<BLANKLINE>
+Naibor?
+<BLANKLINE>
+ALX.
+<BLANKLINE>
+
+'text is a string with severals blankspaces'
+>>> text_indentation("Leona:		Naibor?            ALX.")
+Leona:
+<BLANKLINE>
+Naibor?
+<BLANKLINE>
+ALX.
+<BLANKLINE>
+
+'text with .:? without blankspace'
+>>> text_indentation(".:?")
+.
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+
+'text is an integer'
+>>> text_indentation(7)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is floating'
+>>> text_indentation(3.8)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is boolean'
+>>> text_indentation(True)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is tuple'
+>>> text_indentation((2, 7))
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is list'
+>>> text_indentation([2, 7])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is dict'
+>>> text_indentation({'2': 7})
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
