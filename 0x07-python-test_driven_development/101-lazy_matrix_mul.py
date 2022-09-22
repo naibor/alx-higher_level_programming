@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import numpy
 """ 
-Module matrix_mul
+Module lazy_matrix_mul
 It multiplies two matrixes using numpy
 """
 
