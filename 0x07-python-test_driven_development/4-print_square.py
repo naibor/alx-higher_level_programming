@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+Module print_square
+Itt  prints out a square using #
+"""
+
+
 def print_square(size):
     """ Prints a square
     Args:
