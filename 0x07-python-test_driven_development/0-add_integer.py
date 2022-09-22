@@ -10,7 +10,7 @@ def add_integer(a, b=98):
     Returns:
         returns sum of integers
     """
-    #check value a is int
+    # check value a is int
     if type(a) != int:
         if type(a) == float:
             # type cast if of type float
