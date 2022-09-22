@@ -1,5 +1,6 @@
 #!usr/bin/python3
-
+""" 2-matrix_divided module
+"""
 def matrix_divided(matrix, div):
     """Matrix divided by a number
     Args:
