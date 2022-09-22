@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module 100-matrix_mul
+Multiplies two matrixes and get a new matrix
+"""
+
 
 def matrix_mul(m_a, m_b):
     """Multiply two  matrix
