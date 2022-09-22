@@ -4,6 +4,7 @@ Module test_indentation
 It prints a text with 2 lines after a set of characters; .,?:
 """
 
+
 def text_indentation(text):
     """Prints text with added two newlines
     after each of these characters {'.', '?', ':'}.
