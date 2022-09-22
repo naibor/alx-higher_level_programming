@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
 Module matrix_divided
 Divides a  matrix of numbers by a number
