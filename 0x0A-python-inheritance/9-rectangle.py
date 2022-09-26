@@ -18,11 +18,11 @@ class Rectangle(BaseGeometry):
             width: private argument
             height: private argument
         """
-        # validate values using integer_validator method
-        w = BaseGeometry.integer_validator(self, name="width", value=width)
-        h = BaseGeometry.integer_validator(self, name="height", value=height)
-        self.__width = w
-        self.__height = h
+        # validate values using integer_validator method and initialize
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
 
     def __str__(self):
         """ Formating string"""
@@ -33,4 +33,5 @@ class Rectangle(BaseGeometry):
         """ Override function area()
         Include calculating the area
         """
-        return self.__width * self.__heigth
+        result = self.__width * self.__height
+        return result
