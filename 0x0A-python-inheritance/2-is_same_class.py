@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-""" 
+"""
 Module 2-is_same_class
 Checks if the object is same as instance of a class
 """
+
 
 def is_same_class(obj, a_class):
     """ Is the same class?
