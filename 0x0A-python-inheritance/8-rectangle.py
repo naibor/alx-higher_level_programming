@@ -26,8 +26,9 @@ class BaseGeometry():
         """
         if type(value) != int:
             raise TypeError("{} must be an integer". format(name))
-        if value <= 0 :
+        if value <= 0:
             raise ValueError("{} must be greater than 0". format(name))
+
 
 class Rectangle(BaseGeometry):
     """ Class Rectangle, that inherits from BaseGeometry. """
@@ -38,6 +39,8 @@ class Rectangle(BaseGeometry):
             width: private argument
             height: private argument
         """
-        self.__width = BaseGeometry.integer_validator(self, name="width", value=width)
-        self.__height = BaseGeometry.integer_validator(self, name="height", value=height)
-    
+        # validate values using integer_validator method
+        w = BaseGeometry.integer_validator(self, name="width", value=width)
+        h = BaseGeometry.integer_validator(self, name="height", value=height)
+        self.__width = w
+        self.__height = h
