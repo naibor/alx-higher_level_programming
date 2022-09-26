@@ -23,7 +23,7 @@ class Square(Rectangle):
 
     def __str__(self):
         """ Formatted string"""
-        return str("[Rectangle] {}/{}".format(self.__size, self.__size))
+        return str("[Square] {}/{}".format(self.__size, self.__size))
 
     def area(self):
         """ Override area function
