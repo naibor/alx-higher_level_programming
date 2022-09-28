@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 9-student
+Module: 10-student
 A class student
 Public instance attributes: first_name, last_name, age
 """
