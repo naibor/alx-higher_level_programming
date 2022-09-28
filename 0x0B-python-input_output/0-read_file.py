@@ -15,4 +15,4 @@ def read_file(filename=""):
         # then read the file
         read_file = f.read()
         # print it to stdout
-        print("{}". format(read_file))
+        print(read_file, end='')
