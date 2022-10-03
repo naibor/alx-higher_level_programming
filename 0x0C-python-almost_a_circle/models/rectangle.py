@@ -134,3 +134,22 @@ class Rectangle(Base):
                                                   self.id, self.x, self.y,
                                                   self.width, self.height)
         return string
+
+    def update(self, *args):
+        """ Update, assigns a variable to each attribute
+        Args:
+            *args
+        """
+        if args is not None and len(args) != 0:
+            if len(args) >= 1:
+                if type(args[0]) != int and args[0] is not None:
+                    raise TypeError("id must be an integer")
+                self.id = args[0]
+            if len(args) > 1:
+                self.width = args[1]
+            if len(args) > 2:
+                self.height = args[2]
+            if len(args) > 3:
+                self.x = args[3]
+            if len(args) > 4:
+                self.y = args[4]
