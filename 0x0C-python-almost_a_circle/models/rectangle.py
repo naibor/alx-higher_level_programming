@@ -28,7 +28,7 @@ class Rectangle(Base):
         self.__height = height
         self.__x = x
         self.__y = y
-    
+
     # validator method
     def validator(self, name, value):
         """ Validate the values
@@ -111,3 +111,26 @@ class Rectangle(Base):
             The area of the rectangle
         """
         return self.width * self.height
+
+    def display(self):
+        """
+        Prints a Rectangle using #
+        """
+        for i in range(self.y):
+            print()
+        for i in range(self.height):
+            for j in range(self.x):
+                print(' ', end='')
+            for j in range(self.width):
+                print('#', end='')
+            print()
+
+    def __str__(self):
+        """str repr method
+        Return:
+            The string: [class_name] (id) x/y - width/height
+        """
+        string = "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                                  self.id, self.x, self.y,
+                                                  self.width, self.height)
+        return string
