@@ -93,3 +93,12 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(2, 8, 9, -65)
         self.assertEqual("y must be >= 0", str(x.exception))
 
+    def test_4_0(self):
+        """Test for public method area."""
+
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+        r2 = Rectangle(75, 2)
+        self.assertEqual(r2.area(), 150)
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r3.area(), 56)
