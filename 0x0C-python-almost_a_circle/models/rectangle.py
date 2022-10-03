@@ -28,6 +28,24 @@ class Rectangle(Base):
         self.__height = height
         self.__x = x
         self.__y = y
+    
+    # validator method
+    def validator(self, name="", value):
+        """ Validate the values
+        Args:
+            name: name of attribute
+            values: what to validate
+        """
+
+        # check type and value errors
+        if type(value) in not int:
+            raise TypeError("{} must be an integer". format(name))
+        while name == width or name == height:
+            if value <= 0:
+                raise ValueError("{} must be > 0". format(name))
+        while name == x or name == y:
+            if value < 0:
+                raise ValueError("{} must be > 0". format(name))
 
     @property
     def width(self):
@@ -40,13 +58,13 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-
-        self.__width = value
+        width = validator("width", value)
+        self.__width = width
 
     @property
     def height(self):
         """ getter method for height """
-        return self.__width
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -54,8 +72,8 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-
-        self.__height = value
+        height = validator("height", value)
+        self.__height = height
 
     @property
     def x(self):
@@ -68,8 +86,8 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-
-        self.__x = value
+        x = validator("x", value)
+        self.__x = x
 
     @property
     def y(self):
@@ -82,5 +100,5 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-
-        self.__y = value
+        y = validator("y", value)
+        self.__y = y
