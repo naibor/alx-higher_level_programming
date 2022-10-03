@@ -18,7 +18,7 @@ class Base:
             id(int)
         """
         # check attribute id and assign it
-        if id in not None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
