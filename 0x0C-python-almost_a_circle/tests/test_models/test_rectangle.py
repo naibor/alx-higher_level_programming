@@ -145,4 +145,33 @@ class TestRectangle(unittest.TestCase):
         s = f.getvalue()
         res = "[Rectangle] (12) 2/1 - 4/6\n"
         self.assertEqual(s, res)
+    
+    # Task 7
+    def test_007_0(self):
+        """Test for public method display with x and y."""
 
+        f = io.StringIO()
+        r1 = Rectangle(2, 3, 2, 2)
+        with contextlib.redirect_stdout(f):
+            r1.display()
+        s = f.getvalue()
+        res = "\n\n  ##\n  ##\n  ##\n"
+        self.assertEqual(s, res)
+
+    # Task 8    
+    def test_008_0(self):
+        """Test for public method update."""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        self.assertEqual(r1.id, 89)
+        r1.update(89, 2)
+        self.assertEqual(r1.width, 2)
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.height, 3)
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(r1.x, 4)
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.y, 5)
+        r1.update()
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
