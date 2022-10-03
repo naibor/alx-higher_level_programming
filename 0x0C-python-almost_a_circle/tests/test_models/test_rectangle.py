@@ -14,7 +14,8 @@ class TestRectangle(unittest.TestCase):
 
     def setUp(self):
         Base._Base__nb_objects = 0
-
+    
+    # Task 2
     def test_002_0(selfi):
         """ Test for id"""
 
@@ -61,7 +62,7 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(issubclass(Rectangle, Base))
         self.assertFalse(isinstance(Rectangle, Base))
 
-
+    # Task 3
     def test_003_0(self):
         """Test Rectangle class: check for wrong attributes."""
 
@@ -93,12 +94,44 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(2, 8, 9, -65)
         self.assertEqual("y must be >= 0", str(x.exception))
 
-    def test_4_0(self):
+    # Task 4
+    def test_004_0(self):
         """Test for public method area."""
-
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
         r2 = Rectangle(75, 2)
         self.assertEqual(r2.area(), 150)
         r3 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r3.area(), 56)
+
+    def test_004_1(self):
+        """Test for public method area with wrong args."""
+
+        with self.assertRaises(TypeError) as x:
+            r1 = Rectangle(3, 2)
+            r1.area("Hello")
+        self.assertEqual(
+            "area() takes 1 positional argument but 2 were given", str(
+                x.exception))
+    # Task 5
+     def test_005_0(self):
+        """Test for public method display."""
+
+        f = io.StringIO()
+        r1 = Rectangle(4, 5)
+        with contextlib.redirect_stdout(f):
+            r1.display()
+        s = f.getvalue()
+        res = "####\n####\n####\n####\n####\n"
+        self.assertEqual(s, res)
+
+    def test_005_1(self):
+        """Test for public method display with wrong args."""
+
+        with self.assertRaises(TypeError) as x:
+            r1 = Rectangle(9, 6)
+            r1.display(9)
+        self.assertEqual(
+            "display() takes 1 positional argument but 2 were given", str(
+                x.exception))
+
