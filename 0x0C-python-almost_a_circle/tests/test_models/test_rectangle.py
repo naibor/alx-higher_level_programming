@@ -15,7 +15,7 @@ class TestRectangle(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 
-    def test_2_001(selfi):
+    def test_002_0(selfi):
         """ Test for id"""
 
          r1 = Rectangle(10, 2)
@@ -25,7 +25,7 @@ class TestRectangle(unittest.TestCase):
          r3 = Rectangle(10, 2, 0, 0, 12)
          self.assertEqual(r3.id, 3)
 
-    def test_2_002(self):
+    def test_002_1(self):
         """ Test for attribute values"""
 
         r1 = Rectangle(10, 2)
@@ -38,3 +38,58 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.height, 2)
         self.assertEqual(r2.x, 4)
         self.assertEqual(r2.y, 5)
+
+    def test_002_2(self):
+        """Test class Rectangle: check for missing arguments."""
+
+        with self.assertRaises(TypeError) as x:
+            r0 = Rectangle(5)
+        self.assertEqual(
+            "__init__() missing 1 required positional argument: 'height'", str(
+                x.exception))
+        s = ("__init__() missing 2 required positional" +
+             " arguments: 'width' and 'height'")
+        with self.assertRaises(TypeError) as x:
+            r1 = Rectangle()
+        self.assertEqual(s, str(x.exception))
+
+    def test_002_3(self):
+        """Test class Rectangle: check for inheritance."""
+
+        r1 = Rectangle(9, 3)
+        self.assertTrue(isinstance(r1, Base))
+        self.assertTrue(issubclass(Rectangle, Base))
+        self.assertFalse(isinstance(Rectangle, Base))
+
+
+    def test_003_0(self):
+        """Test Rectangle class: check for wrong attributes."""
+
+        with self.assertRaises(TypeError) as x:
+            r = Rectangle("Hello", 2)
+        self.assertEqual("width must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r = Rectangle(2, "World")
+        self.assertEqual("height must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r = Rectangle(1, 2, "Foo", 3)
+        self.assertEqual("x must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r = Rectangle(1, 2, 2, "Bar")
+        self.assertEqual("y must be an integer", str(x.exception))
+        with self.assertRaises(ValueError) as x:
+            r = Rectangle(0, 2)
+        self.assertEqual("width must be > 0", str(x.exception))
+        with self.assertRaises(ValueError) as x:
+            r = Rectangle(2, 0)
+        self.assertEqual("height must be > 0", str(x.exception))
+        with self.assertRaises(ValueError) as x:
+            r = Rectangle(2, -3)
+        self.assertEqual("height must be > 0", str(x.exception))
+        with self.assertRaises(ValueError) as x:
+            r = Rectangle(2, 5, -5, 6)
+        self.assertEqual("x must be >= 0", str(x.exception))
+        with self.assertRaises(ValueError) as x:
+            r = Rectangle(2, 8, 9, -65)
+        self.assertEqual("y must be >= 0", str(x.exception))
+
