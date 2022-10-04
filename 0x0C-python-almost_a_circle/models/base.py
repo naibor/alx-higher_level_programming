@@ -4,6 +4,7 @@ Module: base
 
 """
 import json
+import os
 import csv
 
 
@@ -92,7 +93,7 @@ class Base:
                 json_obj = cls.from_json_string(file.read())
             for key, value in enumerate(json_obj):
                 json_obj[key] = cls.create(**json_obj[key])
-        except:
+        except DoesNotExist:
             pass
 
         return json_obj
@@ -121,3 +122,27 @@ class Base:
                 writer = csv.DictWriter(f, fieldnames=fields)
                 writer.writeheader()
                 writer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes CSV format from a file.
+        Returns: list of instances
+        """
+
+        filename = cls.__name__ + ".csv"
+        temp = []
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                reader = csv.reader(f, delimiter=',')
+                if cls.__name__ == 'Rectangle':
+                    fields = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == 'Square':
+                    fields = ['id', 'size', 'x', 'y']
+                for x, row in enumerate(reader):
+                    if x > 0:
+                        i = cls(1, 1)
+                        for j, e in enumerate(row):
+                            if e:
+                                setattr(i, fields[j], int(e))
+                        temp.append(i)
+        return temp
