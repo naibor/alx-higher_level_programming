@@ -24,29 +24,10 @@ class Rectangle(Base):
             y(int)
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
-
-    # validator method
-    def validator(self, name, value):
-        """ Validate the values
-        Args:
-            name: name of attribute
-            values: what to validate
-        """
-
-        # check type and value errors
-        # import pdb; pdb.set_trace()
-        if type(value) is not int:
-            raise TypeError("{} must be an integer". format(name))
-        while name == "width" or name == "height":
-            if value <= 0:
-                raise ValueError("{} must be > 0". format(name))
-        while name == "x" or name == "y":
-            if value < 0:
-                raise ValueError("{} must be > 0". format(name))
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -59,8 +40,11 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-        width = self.validator("width", value)
-        self.__width = width
+        if type(value) != int:
+            raise TypeError('width must be an integer')
+        elif value <= 0:
+            raise ValueError('width must be > 0')
+        self.__width = value
 
     @property
     def height(self):
@@ -73,8 +57,11 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-        height = self.validator("height", value)
-        self.__height = height
+        if type(value) != int:
+            raise TypeError('height must be an integer')
+        elif value <= 0:
+            raise ValueError('height must be > 0')
+        self.__height = value
 
     @property
     def x(self):
@@ -87,8 +74,11 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-        x = self.validator("x", value)
-        self.__x = x
+        if type(value) != int:
+            raise TypeError('x must be an integer')
+        elif value < 0:
+            raise ValueError('x must be >= 0')
+        self.__x = value
 
     @property
     def y(self):
@@ -101,8 +91,11 @@ class Rectangle(Base):
         Args:
             value: the value to set
         """
-        y = self.validator("y", value)
-        self.__y = y
+        if type(value) != int:
+            raise TypeError('y must be an integer')
+        elif value < 0:
+            raise ValueError('y must be >= 0')
+        self.__y = value
 
     def area(self):
         """
@@ -135,7 +128,7 @@ class Rectangle(Base):
                                                   self.width, self.height)
         return string
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ Update, assigns a variable to each attribute
         Args:
             *args
@@ -153,3 +146,15 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) > 4:
                 self.y = args[4]
+        elif kwargs is not None and len(kwargs) != 0:
+            for (key, value) in kwargs.items():
+                 if key == "id":
+                     self.id = value
+                 elif key == "width":
+                     self.width = value
+                 elif key == "height":
+                     self.height = value
+                 elif key == "x":
+                     self.x = value
+                 elif key == "y":
+                     self.y = value
