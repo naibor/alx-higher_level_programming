@@ -175,3 +175,39 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.y, 5)
         r1.update()
         self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_008_1(self):
+        """Test for public method update with wrong types."""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        with self.assertRaises(TypeError) as x:
+            r1.update("hi")
+        self.assertEqual("id must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r1.update(65, 89, "hi")
+        self.assertEqual("height must be an integer", str(x.exception))
+
+    # Task 9
+    def test_009_0(self):
+        """Test for public method update with kwargs."""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(height=1)
+        self.assertEqual(r1.height, 1)
+        r1.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(r1.y, 3)
+        self.assertEqual(r1.width, 4)
+        self.assertEqual(r1.x, 1)
+        self.assertEqual(r1.height, 2)
+
+    def test_009_1(self):
+        """Test for public method update with wrong types in kwargs."""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        with self.assertRaises(TypeError) as x:
+            r1.update(id='hi')
+        self.assertEqual("id must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r1.update(height=65, x=2, width="hi")
+        self.assertEqual("width must be an integer", str(x.exception))
+
