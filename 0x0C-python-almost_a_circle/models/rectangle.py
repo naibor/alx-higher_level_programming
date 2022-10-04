@@ -148,16 +148,16 @@ class Rectangle(Base):
                 self.y = args[4]
         elif kwargs is not None and len(kwargs) != 0:
             for (key, value) in kwargs.items():
-                 if key == "id":
-                     self.id = value
-                 elif key == "width":
-                     self.width = value
-                 elif key == "height":
-                     self.height = value
-                 elif key == "x":
-                     self.x = value
-                 elif key == "y":
-                     self.y = value
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """Creates a dictionary representation for rectangle
