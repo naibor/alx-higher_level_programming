@@ -235,3 +235,6 @@ class TestRectangle(unittest.TestCase):
             r1 = Rectangle(10, 2, 1, 9)
             r1_dictionary = r1.to_dictionary("Hi")
         self.assertEqual(s, str(x.exception))
+
+if __name__ == '__main__':
+    unittest.main()
