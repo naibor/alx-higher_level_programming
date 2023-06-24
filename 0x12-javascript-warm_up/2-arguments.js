@@ -5,7 +5,6 @@ if (argcount > 3) {
   console.log('Argument found');
 } else if (argcount === 3) {
   console.log('Argument found');
-}
-else {
-	console.log('No argument')
+} else {
+  console.log('No argument');
 }
