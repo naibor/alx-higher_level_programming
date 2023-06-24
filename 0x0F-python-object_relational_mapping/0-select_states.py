@@ -1,4 +1,5 @@
-#!/usr/bin/node
+#!/usr/bin/python3
+
 """ Script that lists all data 'states' from a database 'hbtn_0e_0_usa' """
 import MySQLdb
 import sys
